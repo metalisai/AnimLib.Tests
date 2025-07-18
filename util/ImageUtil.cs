@@ -1,18 +1,17 @@
 using AnimLib;
-using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 
 namespace AnimLib.Tests;
 
 public static class ImageExtensions
 {
-    public static Image ToImage(this CapturedFrame ss)
+    public static SixLabors.ImageSharp.Image ToImage(this CapturedFrame ss)
     {
         switch (ss.format)
         {
             case Texture2D.TextureFormat.RGB16:
                 {
-                    Image<Rgb48> image = new Image<Rgb48>(ss.width, ss.height);
+                    SixLabors.ImageSharp.Image<Rgb48> image = new SixLabors.ImageSharp.Image<Rgb48>(ss.width, ss.height);
                     int i = 0;
                     for (int y = 0; y < ss.height; y++)
                     {
