@@ -27,7 +27,7 @@ public class CircleTests : IDisposable
             world.ActiveCamera!.ClearColor = Color.BLACK;
             var circle = new Circle(300.0f);
             circle.Color = Color.RED;
-            world.CreateDynInstantly(circle);
+            world.CreateInstantly(circle);
             world.Marker("CircleCreated");
             await Time.WaitSeconds(1.0);
         }

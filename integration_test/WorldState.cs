@@ -22,11 +22,11 @@ public class WorldState
         world.StartEditing(this);
 
         var circle = new Circle(50.0f);
-        world.CreateDynInstantly(circle);
+        world.CreateInstantly(circle);
 
         Assert.True(circle.Created);
 
-        world.DestroyDyn(circle);
+        world.Destroy(circle);
 
         Assert.False(circle.Created);
 
@@ -76,7 +76,7 @@ public class WorldState
         Assert.False(text.Created);
         Assert.False(shapes[0].Created);
 
-        world.CreateDynInstantly(text);
+        world.CreateInstantly(text);
 
         // check that the text and shapes are created
         Assert.True(text.Created);
@@ -89,7 +89,7 @@ public class WorldState
         shapes = text.GetSubstring("Goodbye");
         Assert.NotEmpty(shapes);
 
-        world.DestroyDyn(text);
+        world.Destroy(text);
 
         // check that both the text and its shapes are destroyed
         Assert.False(text.Created);
@@ -109,7 +109,7 @@ public class WorldState
 
         Assert.NotEmpty(shapes);
 
-        world.CreateDynInstantly(text);
+        world.CreateInstantly(text);
         Assert.True(text.Created);
         text.Disband();
         Assert.False(text.Created);
